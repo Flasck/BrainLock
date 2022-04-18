@@ -1,7 +1,54 @@
 {% extends "base.html" %}
 
+
 {% block title %}
+Home
 {% endblock %}
 
+
 {% block body %}
+
+<div class="intro">
+    <div style="float:left; width:25%;">
+        <img class='ph' src='../static/image/ensh.jpg' alt="None">
+    </div>
+
+    <div style="float:right; width:50%;">
+        <p class="t">
+            Brain Lock — сайт-сборник логических и математических задач.
+            Решайте различные головоломки и развивайте свой мозг! В вашем распоряжении более 30 задач<br> ↓↓↓
+        </p>
+    </div>
+</div>
+
+<h1>Задачи с автоматической проверкой</h1>
+<div>
+    <ul>
+        {% for i in range(1, len1 + 1) %}
+            <div class="task">
+                {% if name=="" and i % 2 == 0 %}
+                    <li class="bl"><a class="ta" href="#">🔒</a></li>
+                {% else %}
+                    <li class="bl"><a class="ta" href="/task/1/{{i}}">{{i}}</a></li>
+                {%endif%}
+            </div>
+        {% endfor %}
+    </ul>
+</div>
+
+<h1>Задачи с самостоятельной проверкой</h1>
+<div>
+    <ul>
+        {% for i in range(1, len2 + 1) %}
+            <div class="task">
+                {% if name=="" and i % 2 == 0 %}
+                    <li class="bl"><a class="ta" href="#">🔒</a></li>
+                {% else %}
+                    <li class="bl"><a class="ta" href="/task/2/{{i}}">{{i}}</a></li>
+                {%endif%}
+            </div>
+        {% endfor %}
+    </ul>
+</div>
+
 {% endblock %}

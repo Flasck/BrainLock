@@ -3,14 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/main.css') }}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 
+
 <body>
-{% block body %}{% endblock %}
+    <div class="header">
+        <div style="float:left; width:50%;">
+            <ul style="float: left; padding: 0; padding-left: 20px; margin: 0">
+                <li class="hw"><a class="ha" href="/">Главная</a></li>
+            </ul>
+        </div>
+
+        <div style="float:right; width:50%;">
+            <ul style="float: right; padding: 0; padding-right: 20px; margin: 0">
+                <li class="hw">{% if name %}<a  class="ha" href="#">{{name}}</a>{% else %}<a class="ha" href="/login">Вход</a>{% endif %}</li>
+                <li class="hw">{% if surname %}<a  class="ha" href="#">{{surname}}</a>{% else %}<a class="ha" href="/registration">Регистрация</a>{% endif %}</li>
+            </ul>
+        </div>
+    </div>
+
+    {% block body %}
+    {% endblock %}
+
 </body>
+
 
 </html>

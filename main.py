@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", name="", surname="", len1=15, len2=5)
 
 
 @app.route("/registration")
@@ -14,14 +14,14 @@ def reg():
     return render_template("reg.html")
 
 
-@app.route("/home_registered")
-def home_reg():
-    return render_template("home_reg.html")
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
-@app.route("/task")
-def task():
-    return render_template("task.html")
+@app.route("/task/<typ>/<number>")
+def task(typ, number):
+    return render_template("task.html", typ=typ, number=number)
 
 
 if __name__ == '__main__':

@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
+Task
 {% endblock %}
 
 {% block body %}
+
+<h1>Задание №{{number}}:</h1>
+<div style="text-align: center;">
+    <p class="qu">
+        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+    </p>
+    <button class="btn">
+        {% if typ == 1%}
+            Проверить
+        {% else %}
+            Узнать ответ
+        {% endif %}
+    </button>
+</div>
 {% endblock %}
