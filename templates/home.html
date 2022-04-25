@@ -10,13 +10,13 @@ Home
 
 <div class="intro">
     <div style="float:left; width:25%;">
-        <img class='ph' src='../static/image/ensh.jpg' alt="None">
+        <img class='ph' src='http://127.0.0.1:8080/static/image/ensh.jpg' alt="None">
     </div>
 
     <div style="float:right; width:50%;">
         <p class="t">
             Brain Lock — сайт-сборник логических и математических задач.
-            Решайте различные головоломки и развивайте свой мозг! В вашем распоряжении более 30 задач<br> ↓↓↓
+            Решайте различные головоломки, развивайте свое мышление и ментальные способности!<br> ↓↓↓
         </p>
     </div>
 </div>
@@ -24,10 +24,10 @@ Home
 <h1>Задачи с автоматической проверкой</h1>
 <div>
     <ul>
-        {% for i in range(1, len1 + 1) %}
+        {% for i in range(1, 16) %}
             <div class="task">
                 {% if name=="" and i % 2 == 0 %}
-                    <li class="bl"><a class="ta" href="#">🔒</a></li>
+                    <li class="bl"><a class="ta" href="#"><abbr style="text-decoration: None" title="Необходимо пройти регистрацию">🔒</abbr></a></li>
                 {% else %}
                     <li class="bl"><a class="ta" href="/task/1/{{i}}">{{i}}</a></li>
                 {%endif%}
@@ -39,10 +39,10 @@ Home
 <h1>Задачи с самостоятельной проверкой</h1>
 <div>
     <ul>
-        {% for i in range(1, len2 + 1) %}
+        {% for i in range(1, 6) %}
             <div class="task">
                 {% if name=="" and i % 2 == 0 %}
-                    <li class="bl"><a class="ta" href="#">🔒</a></li>
+                    <li class="bl"><a class="ta" href="#"><abbr style="text-decoration: None" title="Необходимо пройти регистрацию">🔒</abbr></a></li>
                 {% else %}
                     <li class="bl"><a class="ta" href="/task/2/{{i}}">{{i}}</a></li>
                 {%endif%}

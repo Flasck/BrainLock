@@ -18,8 +18,8 @@
 
         <div style="float:right; width:50%;">
             <ul style="float: right; padding: 0; padding-right: 20px; margin: 0">
-                <li class="hw">{% if name %}<a  class="ha" href="#">{{name}}</a>{% else %}<a class="ha" href="/login">Вход</a>{% endif %}</li>
-                <li class="hw">{% if surname %}<a  class="ha" href="#">{{surname}}</a>{% else %}<a class="ha" href="/registration">Регистрация</a>{% endif %}</li>
+                <li class="hw"><a  class="ha" href="/login">{% if name %}{{name}}{% else %}Вход{% endif %}</a></li>
+                <li class="hw"><a  class="ha" href="/registration">{% if surname %}{{surname}}{% else %}Регистрация{% endif %}</a></li>
             </ul>
         </div>
     </div>

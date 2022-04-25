@@ -5,4 +5,18 @@ Login
 {% endblock %}
 
 {% block body %}
+<h1 style="padding-top:40px;padding-bottom:30px; font-size: 75px;">Вход</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p class="a_l">
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", type="email") }}<br>
+    </p>
+    <p class="a_l">
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+    </p>
+    <div class="a_l" style="margin-top: 50px;">{{ message }}</div>
+    <p class="a_l">{{ form.submit(type="submit", class="btn", style="width: auto; padding-left: 10px; padding-right: 10px; margin-top: 0px;") }}</p>
+</form>
 {% endblock %}

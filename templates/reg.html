@@ -5,4 +5,30 @@ Registration
 {% endblock %}
 
 {% block body %}
+<h1 style="padding-top:30px; padding-bottom:0px; font-size: 65px;">Регистрация</h1>
+<form action="" method="post" novalidate enctype=multipart/form-data>
+    {{ form.hidden_tag() }}
+    <p class="a_l">
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control") }}<br>
+    </p>
+    <p class="a_l">
+        {{ form.surname.label }}<br>
+        {{ form.surname(class="form-control") }}<br>
+    </p>
+    <p class="a_l">
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", type="email") }}<br>
+    </p>
+    <p class="a_l">
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+    </p>
+    <p class="a_l">
+        {{ form.repeat_password.label }}<br>
+        {{ form.repeat_password(class="form-control", type="password") }}<br>
+    </p>
+    <div class="a_l" style="margin-top: 30px;">{{ message }}</div>
+    <p class="a_l">{{ form.submit(type="submit", class="btn", style="width: auto; padding-left: 10px; padding-right: 10px; margin-top:15px;") }}</p>
+</form>
 {% endblock %}

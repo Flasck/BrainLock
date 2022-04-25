@@ -6,17 +6,38 @@ Task
 
 {% block body %}
 
-<h1>Задание №{{number}}:</h1>
+<h1 style="margin:50px;">Задание №{{number}}:</h1>
+
 <div style="text-align: center;">
-    <p class="qu">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-    </p>
-    <button class="btn">
-        {% if typ == 1%}
-            Проверить
-        {% else %}
-            Узнать ответ
-        {% endif %}
-    </button>
+
+    <p class="qu">{{task}}</p>
+
+    {% if typ == "1" %}
+
+        <p><input id ="ans" class="ot" placeholder="Введите численный ответ"></p>
+        <button onclick="CH()" class="btn" style="padding-left: 10px; padding-right: 10px; margin-bottom: 20px;">Проверить</button>
+        <p class="an" id ="ans1"></p>
+
+    {% else %}
+
+        <button onclick="CF()" class="btn" style="padding-left: 10px; padding-right: 10px; margin-bottom: 20px;">Узнать ответ</button>
+        <p class="an" id="ans2"></p>
+
+    {% endif %}
 </div>
+
+<script>
+    function CH()
+    {
+        let n = document.getElementById("ans").value
+        if ( n == "{{answer}}" ) { document.getElementById('ans1').innerHTML = 'Абсолютно правильно!' }
+        else { document.getElementById('ans1').innerHTML = 'Неверно. Попробуйте еще раз)' }
+    }
+
+
+    function CF()
+    {
+        document.getElementById('ans2').innerHTML = "{{answer}}"
+    }
+</script>
 {% endblock %}
