@@ -10,7 +10,7 @@ Home
 
 <div class="intro">
     <div style="float:left; width:25%;">
-        <img class='ph' src='http://127.0.0.1:8080/static/image/ensh.jpg' alt="None">
+        <img class='ph' src='../static/image/ensh.jpg' alt="None">
     </div>
 
     <div style="float:right; width:50%;">
@@ -25,13 +25,19 @@ Home
 <div>
     <ul>
         {% for i in range(1, 16) %}
-            <div class="task">
-                {% if name=="" and i % 2 == 0 %}
-                    <li class="bl"><a class="ta" href="#"><abbr style="text-decoration: None" title="Необходимо пройти регистрацию">🔒</abbr></a></li>
+
+                {% if name == "" and i % 2 == 0 %}
+                    <div class="task"><li class="bl"><a class="ta" href="#"><abbr style="text-decoration: None" title="Необходимо пройти регистрацию">🔒</abbr></a></li></div>
+
                 {% else %}
-                    <li class="bl"><a class="ta" href="/task/1/{{i}}">{{i}}</a></li>
+                    {% if i in gr %}
+                        <div class="task" style="background-color: green"><li class="bl"><a class="ta" href="/task/1/{{i}}">{{i}}</a></li></div>
+                    {% elif i in r %}
+                        <div class="task" style="background-color: red"><li class="bl"><a class="ta" href="/task/1/{{i}}">{{i}}</a></li></div>
+                    {% else %}
+                        <div class="task"><li class="bl"><a class="ta" href="/task/1/{{i}}">{{i}}</a></li></div>
+                    {% endif %}
                 {%endif%}
-            </div>
         {% endfor %}
     </ul>
 </div>
@@ -50,5 +56,4 @@ Home
         {% endfor %}
     </ul>
 </div>
-
 {% endblock %}

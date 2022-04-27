@@ -11,8 +11,8 @@ class User(SqlAlchemyBase):
     surname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     email = sqlalchemy.Column(sqlalchemy.String, index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    green = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    red = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    green = sqlalchemy.Column(sqlalchemy.String, nullable=True, default="0 ")
+    red = sqlalchemy.Column(sqlalchemy.String, nullable=True, default="0 ")
 
     def __repr__(self):
         return f'<User> {self.id} {self.name} {self.email}'

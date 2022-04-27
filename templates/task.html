@@ -27,11 +27,17 @@ Task
 </div>
 
 <script>
+    const xht = new XMLHttpRequest()
+
     function CH()
     {
         let n = document.getElementById("ans").value
-        if ( n == "{{answer}}" ) { document.getElementById('ans1').innerHTML = 'Абсолютно правильно!' }
-        else { document.getElementById('ans1').innerHTML = 'Неверно. Попробуйте еще раз)' }
+        if ( n == "{{answer}}" ) {
+            document.getElementById('ans1').innerHTML = 'Абсолютно правильно!'
+            pass_values("g{{number}}")}
+        else {
+            document.getElementById('ans1').innerHTML = 'Неверно. Попробуйте еще раз)'
+            pass_values("b{{number}}")}
     }
 
 
@@ -39,5 +45,11 @@ Task
     {
         document.getElementById('ans2').innerHTML = "{{answer}}"
     }
+
+   function pass_values(num)
+   {
+        xht.open("GET", "http://127.0.0.1:5000/pass_val/"+num)
+        xht.send()
+   }
 </script>
 {% endblock %}
